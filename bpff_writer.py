@@ -3,7 +3,7 @@ import csv
 
 try:
     # create new .bpff file, which we want to write to
-    bpffFile1 = "HeaderTest.bpff"
+    bpffFile1 = "blueprint_sample1.bpff"
     bpff_toWrite = open(bpffFile1, "w")
 
     Sample1_asArray = [] # create array to store contents of file
@@ -20,6 +20,8 @@ try:
         bpff_toWrite.write(header_line)
 
     # tree stuff
+    current_version = "001" # pointer to current version ID, starts at first commit possible
+    
 
 except FileNotFoundError: # handles if there is no file found for sample data
     print("There is no such file, please try again")
