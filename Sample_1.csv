@@ -1,1 +1,7 @@
-Author, ID, 
+File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg
+Blueprint Creator,"(51N,-114W)",120000,12345678,09/29/2025,03/25/2026,Alice,10/04/2025,001,Added new doorway into bathroom.
+,,,,,,Bob,10/05/2025,002,Door added from bedroom to bathroom.
+,,,,,,Claire,10/06/2025,003,Added sliding door to bedroom.
+,,,,,,Dylan,10/06/2025,004,Added door to bathroom.
+,,,,,,Edward,10/07/2025,005,Added door from bedroom to kitchen.
+,,,,,,Fred,10/10/2025,006,Removed sliding door to bedroom.
