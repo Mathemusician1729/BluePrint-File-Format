@@ -1,7 +1,7 @@
 import bigtree as bt
 import pandas as pd
 from bigtree import * #
-import csv
+from cryptography.fernet import Fernet
 
 try:
     # create new .bpff file, which we want to write to
@@ -19,18 +19,17 @@ try:
     main_branch_IDs = [] # create array to store version IDs of "finalized" nodes
     tree_data = sampleData[['Version Author','Version Date','CommitID','CommitMsg','Last CommitID']]
 
-    version_tree = dataframe_to_tree_by_relation(tree_data, child_col='Last CommitID',parent_col='CommitID')
+    print(tree_data)
+    version_tree = dataframe_to_tree_by_relation(tree_data, child_col='CommitID', parent_col='Last CommitID')
     version_tree.show()
 
-    # for j in range(1,len(Sample1_asArray)):
-    #     for name, date, id, msg in Sample1_asArray[j]:
-             
+    # TODO fix the fucking tree root node issue
+    # TODO check if isMain is True, then add that commitID to main_branch_IDs list
+    # TODO create pointer which is initialized to be the most recent entry in the list
 
-    #     if Sample1_asArray[j][Sample1_asArray[0].index("isMain")] == "True":
-    #             main_branch_IDs.append(Sample1_asArray[j][Sample1_asArray[0].index("CommitID")])
-    
-    
-            
+    # TODO add supplier data to csv
+    # TODO parse supplier data in pandas and use in doubly linked list
+    # TODO encrypt into file using fernet
             
 except FileNotFoundError: # handles if there is no file found for sample data
-    print("There is no such file, please try again")
+    print("There is no such file, please try again")    
