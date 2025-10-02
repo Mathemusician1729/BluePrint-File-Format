@@ -1,9 +1,9 @@
 File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isMain
-Blueprint Creator,"(51N,-114W)",120000,12345678,09/29/2025,03/25/2026,Alice,10/04/2025,001,Added new doorway into bathroom.,None,True
+Blueprint Creator,"(51N,-114W)",120000,12345678,09/29/2025,03/25/2026,Alice,10/04/2025,001,Added new doorway into bathroom.,,True
 ,,,,,,Bob,10/05/2025,002,Door added from bedroom to bathroom.,001,False
 ,,,,,,Claire,10/06/2025,003,Added sliding door to bedroom.,001,True
-,,,,,,Dylan,10/06/2025,004,Added door to bathroom.,003,False
-,,,,,,Edward,10/07/2025,005,Added door from bedroom to kitchen.,003,True
+,,,,,,Bob,10/06/2025,004,Added door to bathroom.,002,False
+,,,,,,Edward,10/07/2025,005,Added door from bedroom to kitchen.,002,True
 ,,,,,,Fred,10/10/2025,006,Removed sliding door to bedroom.,003,False
-,,,,,,George,10/11/2025,007,Changed door from bedroom to kitchen to a sliding door.,006,False
+,,,,,,George,10/11/2025,007,Changed door from bedroom to kitchen to a sliding door.,005,False
 ,,,,,,Hannah,10/11/2025,008,Changed door from bedroom to bathroom to a sliding door.,005,True

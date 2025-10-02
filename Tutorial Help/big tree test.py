@@ -1,6 +1,6 @@
 import bigtree as bt # Import the bigtree library
-from bigtree import dict_to_tree, Node
-import csv
+from bigtree import *
+import pandas as pd
 
 # Create a dictionary representing the tree structure
 data_dict = {
@@ -14,10 +14,13 @@ data_dict = {
 lolz = dict_to_tree(data_dict) # Convert the dictionary to a tree structure
 # lolz.show(attr_list=["message", "CurrentVer"]) # Display the tree with the 'message' attribute
 
-root = Node("001", msg="poopypants", date="09/10/2025")
-child_2a = Node("002", msg="poopypants 2", date="09/11/2025", parent=root)
-child_2b = Node("003", msg="poopypants 4", date="09/12/2025", parent=root)
-child_3a = Node("004", msg="poopypants 5", date="09/13/2025", parent=child_2b)
-child_3b = Node("004", msg="poopypants 5", date="09/13/2025", parent=child_2a)
+relation_data = pd.DataFrame([["a", None, 90],
+                              ["b", "a", 65],
+                              ["c", "a", 60],
+                              ["d", "b", 40]],
+                              columns=["child", "parent", "age"]
+                              )
 
-root.show(attr_list=["msg", "date"])
+print(relation_data)
+version_tree = dataframe_to_tree_by_relation(relation_data, child_col="child", parent_col="parent")
+version_tree.show(attr_list=['age'])
