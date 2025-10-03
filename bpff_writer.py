@@ -1,6 +1,7 @@
-import bigtree as bt
+import bigtree
+import pickle
 import pandas as pd
-from bigtree import dataframe_to_tree_by_relation
+from bigtree import *
 from cryptography.fernet import Fernet
 
 def write_to_bpff(input_filename, output_filename): 
@@ -10,9 +11,12 @@ def write_to_bpff(input_filename, output_filename):
         'Budget Limit': 'Int64',
         'Project ID': 'Int64',
         'CommitID': str,
-        'Last CommitID': str
-        # TODO add datetime for date columns
-    })
+        'Last CommitID': str,
+        'isMain': bool
+    },
+    parse_dates=['Date of Approval', 'Est. Date of Completion', 'Version Date']
+    ) # 
+
     header_data = data[['File Author','Build Location', "Budget Limit", "Project ID", "Date of Approval", "Est. Date of Completion"]]
 
     # write header to file
@@ -22,21 +26,30 @@ def write_to_bpff(input_filename, output_filename):
 
     # tree stuff
     main_branch_IDs = [] # create array to store version IDs of "finalized" nodes
-    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg']]
+    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain']]
     tree_data["Last CommitID"] = tree_data["Last CommitID"].astype(str).replace('nan', None) # this confounds me
 
-    print(tree_data,"\n")
     version_tree = dataframe_to_tree_by_relation(tree_data, child_col='CommitID', parent_col='Last CommitID')
-    version_tree.show(attr_list=['Version Author', 'Version Date'])
 
-    # TODO check if isMain is True, then add that commitID to main_branch_IDs list
-    # TODO create pointer which is initialized to be the most recent entry in the list
-
+    # check if isMain is True, then add that commitID to main_branch_IDs list
+    for i, row in tree_data.iterrows(): # TODO Might change to tree traversal if needed
+        if row['isMain']:
+            main_branch_IDs.append(row['CommitID'])
+        
+    # create pointer which is the most recent entry in the list
+    currentVersionID = main_branch_IDs[-1]
+    
+    # TODO serialize tree into file --> choose between newick and pickle
+    serialized_tree = pickle.dumps(version_tree)
+    
+    # TODO try newick format
+    
     # TODO add supplier data to csv
     # TODO parse supplier data in pandas and use in doubly linked list
     # TODO encrypt into file using fernet
         
     # TODO create some demo pdfs for the tester
+    # TODO determine how to make pointers to pdfs
 
 def add_commit(bpffFile, author, date, last_commitID, commitmsg):
     print("hello world")
