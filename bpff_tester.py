@@ -2,8 +2,8 @@ import bpff_reader
 import bpff_writer
 
 # get sample data csv files (names)
-bpff_Sample1 = "Sample_1.csv"
-bpff_Sample2 = "Sample_2.csv"
+bpff_Sample1 = "House_2ndFloor_FloorPlan.csv"
+bpff_Sample2 = "House_3rdFloor_Plumbing.csv"
 
 # names for output files
 bpffFile1 = "blueprint_sample1.bpff"

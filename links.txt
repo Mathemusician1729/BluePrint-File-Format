@@ -8,3 +8,5 @@ Tree to Newick: https://bigtree.readthedocs.io/stable/bigtree/tree/export/#bigtr
 Newick to Tree: https://bigtree.readthedocs.io/0.16.4/bigtree/tree/construct/#bigtree.tree.construct.newick_to_tree
 Read Specific Lines: https://www.geeksforgeeks.org/python/how-to-read-specific-lines-from-a-file-in-python/ 
 List Indexing: https://www.w3schools.com/python/ref_list_index.asp 
+Fernet Help: https://cryptography.io/en/latest/fernet/
+Doubly Linked List: https://www.geeksforgeeks.org/dsa/doubly-linked-list-in-python/ 

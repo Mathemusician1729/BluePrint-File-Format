@@ -45,8 +45,23 @@ def write_to_bpff(input_filename, output_filename):
     bpff_toWrite.write(currentVersionID+")")
     bpff_toWrite.write(",current_ID="+currentVersionID+"}")
     
-    # TODO add supplier data to csv
     # TODO parse supplier data in pandas and use in doubly linked list
+    supplier_data = data[['Supplier Name','Material','Date Ordered','Contractor Name']].drop([4,5,6,7]) # get supplier info from dataframe (also drop the NaN columns)
+
+    # Create Doubly Linked List class in Python
+    class Node:
+        def __init__(self, nextNode, prevNode, data):
+            self.nextNode = None
+            self.prevNode = None
+            self.data = data
+    
+    def insertNode():
+        print("hellow World")
+
+    # Fernet Encryption to File:
+    suppliers_key = Fernet.generate_key()
+
+    # write to .bpff file
     bpff_toWrite.write("\nSUPPLIERS:")
 
     # TODO encrypt into file using fernet
@@ -54,9 +69,17 @@ def write_to_bpff(input_filename, output_filename):
     # TODO create some demo pdfs for the tester
     # TODO determine how to make pointers to pdfs
 
-    bpff_toWrite.close()
+    # TODO implement checksum for footer
 
-def add_version(bpffFile, author, date, last_commitID, commitmsg):
-    print("hello world")
+    # Footer stuffs:
 
-write_to_bpff("Sample_1.csv", "tester.bpff")
+    # close file after writing
+    bpff_toWrite.close() 
+
+def add_version(bpffFile, author, date, last_commitID, commitmsg): # TODO work on add version which will add a new update to the git log
+    version_node = Node()
+
+def revert(bpffFile, revertVersionID): # TODO work on revert function which will revert to a previous main branch
+    print("hello world") 
+
+write_to_bpff("House_2ndFloor_FloorPlan.csv", "tester.bpff")
