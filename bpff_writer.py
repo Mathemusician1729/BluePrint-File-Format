@@ -11,9 +11,7 @@ def write_to_bpff(input_filename, output_filename):
         'CommitID': str,
         'Last CommitID': str,
         'isMain': bool
-    },
-    parse_dates=['Date of Approval', 'Est. Date of Completion', 'Version Date']
-    ) # 
+    }) # 
 
     header_data = data[['File Author','Build Location', "Budget Limit", "Project ID", "Date of Approval", "Est. Date of Completion"]]
 
@@ -43,13 +41,14 @@ def write_to_bpff(input_filename, output_filename):
     # write 
     bpff_toWrite.write("\n{main_branch_history=(")
     for id_idx in range(len(main_branch_IDs)-1):
-        bpff_toWrite.write(main_branch_IDs[id_idx]+" > ")
+        bpff_toWrite.write(main_branch_IDs[id_idx]+">")
     bpff_toWrite.write(currentVersionID+")")
-
-    bpff_toWrite.write(", current_ID > "+currentVersionID+"}")
+    bpff_toWrite.write(",current_ID="+currentVersionID+"}")
     
     # TODO add supplier data to csv
     # TODO parse supplier data in pandas and use in doubly linked list
+    bpff_toWrite.write("\nSUPPLIERS:")
+
     # TODO encrypt into file using fernet
         
     # TODO create some demo pdfs for the tester
@@ -57,7 +56,7 @@ def write_to_bpff(input_filename, output_filename):
 
     bpff_toWrite.close()
 
-def add_commit(bpffFile, author, date, last_commitID, commitmsg):
+def add_version(bpffFile, author, date, last_commitID, commitmsg):
     print("hello world")
 
 write_to_bpff("Sample_1.csv", "tester.bpff")

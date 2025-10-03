@@ -15,7 +15,7 @@ try:
 
     # test reader
     bpff_reader.read_bpff(bpffFile1)
-    bpff_reader.read_bpff(bpffFile2)
+    #bpff_reader.read_bpff(bpffFile2)
 
     # test add
     #bpff_writer.add_commit(bpffFile1, "Matthew", )
