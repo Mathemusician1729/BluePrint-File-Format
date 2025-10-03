@@ -4,3 +4,4 @@ Fernet Encryption: https://cryptography.io/en/latest/fernet/
 Read CSV for git ID: https://www.statology.org/pandas-read-csv-dtype/ 
 datetime parse: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
 Row iteration: https://www.w3schools.com/python/pandas/ref_df_iterrows.asp
+Newick: https://bigtree.readthedocs.io/stable/bigtree/tree/tree/#bigtree.tree.tree.Tree.to_newick

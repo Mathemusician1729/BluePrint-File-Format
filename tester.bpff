@@ -4,3 +4,7 @@ Budget Limit: 120000
 Project ID: 12345678
 Date of Approval: 2025-09-29 00:00:00
 Est. Date of Completion: 2026-03-25 00:00:00
+
+COMMIT_TREE:
+((004[&&NHX:Version Author=Bob:Version Date=2025-10-06 00:00:00:CommitMsg=Added door to bathroom.],005[&&NHX:Version Author=Edward:Version Date=2025-10-07 00:00:00:CommitMsg=Added door from bedroom to kitchen.])002[&&NHX:Version Author=Bob:Version Date=2025-10-05 00:00:00:CommitMsg=Door added from bedroom to bathroom.:isMain=True],(006[&&NHX:Version Author=Fred:Version Date=2025-10-10 00:00:00:CommitMsg=Removed sliding door to bedroom.],007[&&NHX:Version Author=Claire:Version Date=2025-10-11 00:00:00:CommitMsg=Changed door from bedroom to kitchen to a sliding door.],008[&&NHX:Version Author=Hannah:Version Date=2025-10-11 00:00:00:CommitMsg=Changed door from bedroom to bathroom to a sliding door.:isMain=True])003[&&NHX:Version Author=Claire:Version Date=2025-10-06 00:00:00:CommitMsg=Added sliding door to bedroom.:isMain=True])001[&&NHX:Version Author=Alice:Version Date=2025-10-04 00:00:00:CommitMsg=Added new doorway into bathroom.:isMain=True]
+{main_branch_history=(001 > 002 > 003 > 008), current_ID > 008}

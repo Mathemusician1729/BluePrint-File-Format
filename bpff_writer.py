@@ -1,5 +1,3 @@
-import bigtree
-import pickle
 import pandas as pd
 from bigtree import *
 from cryptography.fernet import Fernet
@@ -26,10 +24,13 @@ def write_to_bpff(input_filename, output_filename):
 
     # tree stuff
     main_branch_IDs = [] # create array to store version IDs of "finalized" nodes
-    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain']]
+    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain']] # parse tree attributes from dataframe
     tree_data["Last CommitID"] = tree_data["Last CommitID"].astype(str).replace('nan', None) # this confounds me
 
     version_tree = dataframe_to_tree_by_relation(tree_data, child_col='CommitID', parent_col='Last CommitID')
+
+    version_tree_asNewick = tree_to_newick(version_tree, attr_list=['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain'])
+    bpff_toWrite.write("\nCOMMIT_TREE:\n"+version_tree_asNewick)
 
     # check if isMain is True, then add that commitID to main_branch_IDs list
     for i, row in tree_data.iterrows(): # TODO Might change to tree traversal if needed
@@ -39,10 +40,13 @@ def write_to_bpff(input_filename, output_filename):
     # create pointer which is the most recent entry in the list
     currentVersionID = main_branch_IDs[-1]
     
-    # TODO serialize tree into file --> choose between newick and pickle
-    serialized_tree = pickle.dumps(version_tree)
-    
-    # TODO try newick format
+    # write 
+    bpff_toWrite.write("\n{main_branch_history=(")
+    for id_idx in range(len(main_branch_IDs)-1):
+        bpff_toWrite.write(main_branch_IDs[id_idx]+" > ")
+    bpff_toWrite.write(currentVersionID+")")
+
+    bpff_toWrite.write(", current_ID > "+currentVersionID+"}")
     
     # TODO add supplier data to csv
     # TODO parse supplier data in pandas and use in doubly linked list
@@ -50,6 +54,8 @@ def write_to_bpff(input_filename, output_filename):
         
     # TODO create some demo pdfs for the tester
     # TODO determine how to make pointers to pdfs
+
+    bpff_toWrite.close()
 
 def add_commit(bpffFile, author, date, last_commitID, commitmsg):
     print("hello world")
