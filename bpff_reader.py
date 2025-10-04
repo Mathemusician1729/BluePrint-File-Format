@@ -46,5 +46,6 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     
     # close file at end
     bpff_read.close()
+    return # TODO return something?
 
 read_bpff("tester.bpff")
