@@ -24,3 +24,6 @@ relation_data = pd.DataFrame([["a", None, 90],
 print(relation_data)
 version_tree = dataframe_to_tree_by_relation(relation_data, child_col="child", parent_col="parent")
 version_tree.show(attr_list=['age'])
+
+d = [node.node_name for node in bt.preorder_iter(version_tree)]
+print(d)

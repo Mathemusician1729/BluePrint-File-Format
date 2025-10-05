@@ -1,11 +1,11 @@
-File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isMain
-John Blueprint,"(28N,60W)",1300000,23302397,08/22/2025,02/24/2026,Albert,09/28/2025,001,Added hot water line to bathroom sink,,True
-,,,,,,Bob,10/01/2025,002,Rerouted pipe A to pipe C from pipe B,001,True
-,,,,,,Bob,10/01/2025,003,Rerouted pipe A to pipe D from pipe B,001,True
-,,,,,,Clarence,10/05/2025,004,Rerouted pipe B to pipe C from pipe A,001,False
-,,,,,,Diana,10/07/2025,005,Relocated gate valve and replaced pipe X to it with an elbow pipe,002,True
-,,,,,,Fred,10/10/2025,006,Rerouted pipe X to pipe Y and replaced pipe Y with elbow pipe,002,True
-,,,,,,George,10/11/2025,007,Updated elbow pipe measurements connecting to all water sources,003,True
+File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isCurrent,Supplier Name,Material,Date Ordered,Contractor Name
+John Blueprint,"(28N,60W)",1300000,23302397,08/22/2025,02/24/2026,Albert,09/28/2025,001,Added hot water line to bathroom sink,,True,False,Pipe Providers,PVC Pipes,08/25/2025,Plumbing Experts
+,,,,,,Bob,10/01/2025,002,Rerouted pipe A to pipe C from pipe B,001,False,Pipe Providers,Elbow Pipes,08/25/2025,Plumbing Experts
+,,,,,,Bob,10/01/2025,003,Rerouted pipe A to pipe D from pipe B,001,False,Pipe Providers,Gate Valves,08/29/2025,Plumbing Experts
+,,,,,,Clarence,10/05/2025,004,Rerouted pipe B to pipe C from pipe A,001,False,Gluemasters,Glue,08/30/2025,Material Man
+,,,,,,Diana,10/07/2025,005,Relocated gate valve and replaced pipe X to it with an elbow pipe,002,False,Gluemasters,Teflon Tape,08/30/2025,Material Man
+,,,,,,Fred,10/10/2025,006,Rerouted pipe X to pipe Y and replaced pipe Y with elbow pipe,002,False
+,,,,,,George,10/11/2025,007,Updated elbow pipe measurements connecting to all water sources,003,False
 ,,,,,,Edward,10/11/2025,008,Replaced pipe A and pipe B with smaller diamater pipes,003,False
 ,,,,,,Carl,10/07/2025,009,Replaced the 4 small PVCs between pipes D and E with long PVC,005,False
 ,,,,,,Abby,10/10/2025,010,Placed a reducer between pipes D and E,005,False
@@ -13,4 +13,7 @@ John Blueprint,"(28N,60W)",1300000,23302397,08/22/2025,02/24/2026,Albert,09/28/2
 ,,,,,,George,10/11/2025,012,Changed pipe M diamater to larger size and insert reducer between pipes M and N,006,False
 ,,,,,,Adam,10/11/2025,013,Fully added all hot and cold water lines to both bathroom & kitchen sinks as well as showers,007,True
 ,,,,,,Daniel,10/11/2025,014,Replaced long PVC between pipe G and pipe H with 3 smaller PVCs,007,False
-,,,,,,Bob,10/11/2025,015,Updated legend and annotation for clarity.,013,True
+,,,,,,Bob,10/11/2025,015,Updated legend and annotation for clarity.,013,False
+
+
+

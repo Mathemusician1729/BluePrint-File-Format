@@ -36,7 +36,7 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     history_list = history_fromFile.split(">")
 
     # print results
-    print("\nLast Main Branch: Branch",currentVersion)
+    print("\nCurrent Version: Branch",currentVersion)
 
     history = ''
     for ids_i in range(len(history_list)-1):
@@ -49,3 +49,4 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     return # TODO return something?
 
 read_bpff("tester.bpff")
+read_bpff("tester2.bpff")

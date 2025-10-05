@@ -21,7 +21,7 @@ try:
     bpff_writer.add_commit(bpffFile1, "Matthew", )
     bpff_writer.add_commit(bpffFile2, "Matthew", )
 
-    # test revert
+    # # test revert
     bpff_writer.revert(bpffFile1, "003")
     bpff_writer.revert(bpffFile2, "003")
 

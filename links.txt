@@ -3,7 +3,6 @@ Import Python Files (tester): https://www.geeksforgeeks.org/python/how-to-import
 Fernet Encryption: https://cryptography.io/en/latest/fernet/ 
 Read CSV for git ID: https://www.statology.org/pandas-read-csv-dtype/ 
 dtypes: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-Row iteration: https://www.w3schools.com/python/pandas/ref_df_iterrows.asp
 Tree to Newick: https://bigtree.readthedocs.io/stable/bigtree/tree/export/#bigtree.tree.export.tree_to_newick
 Newick to Tree: https://bigtree.readthedocs.io/0.16.4/bigtree/tree/construct/#bigtree.tree.construct.newick_to_tree
 Read Specific Lines: https://www.geeksforgeeks.org/python/how-to-read-specific-lines-from-a-file-in-python/ 

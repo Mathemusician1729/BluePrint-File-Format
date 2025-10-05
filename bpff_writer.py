@@ -10,7 +10,7 @@ def write_to_bpff(input_filename, output_filename):
         'Project ID': 'Int64',
         'CommitID': str,
         'Last CommitID': str,
-        'isMain': bool
+        'isCurrent': bool
     }) # 
 
     header_data = data[['File Author','Build Location', "Budget Limit", "Project ID", "Date of Approval", "Est. Date of Completion"]]
@@ -22,20 +22,18 @@ def write_to_bpff(input_filename, output_filename):
 
     # tree stuff
     main_branch_IDs = [] # create array to store version IDs of "finalized" nodes
-    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain']] # parse tree attributes from dataframe
+    tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isCurrent']] # parse tree attributes from dataframe
     tree_data["Last CommitID"] = tree_data["Last CommitID"].astype(str).replace('nan', None) # this confounds me
 
     version_tree = dataframe_to_tree_by_relation(tree_data, child_col='CommitID', parent_col='Last CommitID')
 
-    version_tree_asNewick = tree_to_newick(version_tree, attr_list=['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isMain'])
+    version_tree_asNewick = tree_to_newick(version_tree, attr_list=['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isCurrent'])
     bpff_toWrite.write("\nCOMMIT_TREE:\n"+version_tree_asNewick)
 
-    # check if isMain is True, then add that commitID to main_branch_IDs list
-    for i, row in tree_data.iterrows(): # TODO Might change to tree traversal if needed
-        if row['isMain']:
-            main_branch_IDs.append(row['CommitID'])
-        
-    # create pointer which is the most recent entry in the list
+    # traverse tree backwards to get main branch IDs for finalized ones only
+    
+
+    # create pointer to current version
     currentVersionID = main_branch_IDs[-1]
     
     # write 
@@ -46,7 +44,7 @@ def write_to_bpff(input_filename, output_filename):
     bpff_toWrite.write(",current_ID="+currentVersionID+"}")
     
     # TODO parse supplier data in pandas and use in doubly linked list
-    supplier_data = data[['Supplier Name','Material','Date Ordered','Contractor Name']].drop([4,5,6,7]) # get supplier info from dataframe (also drop the NaN columns)
+    supplier_data = data[['Supplier Name','Material','Date Ordered','Contractor Name']].dropna(inplace=True) # get supplier info from dataframe (also drop the NaN columns)
 
     # Create Doubly Linked List class in Python
     class Node:
@@ -82,4 +80,6 @@ def add_version(bpffFile, author, date, last_commitID, commitmsg): # TODO work o
 def revert(bpffFile, revertVersionID): # TODO work on revert function which will revert to a previous main branch
     print("hello world") 
 
+# test
 write_to_bpff("House_1stFloor_FloorPlan.csv", "tester.bpff")
+write_to_bpff("House_3rdFloor_Plumbing.csv", "tester2.bpff")

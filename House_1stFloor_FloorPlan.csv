@@ -1,9 +1,10 @@
-File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isMain,,Supplier Name,Material,Date Ordered,Contractor Name
-Blueprint Creator,"(51N,-114W)",120000,12345678,09/29/2025,03/25/2026,Alice,10/04/2025,001,Added new doorway connecting bedroom and bathroom.,,True,,Black Forest Wood,Wood,08/07/2025,Avalon Construction
-,,,,,,Bob,10/05/2025,002,Updated measurements for larger kitchen size,001,True,,Apex Concrete,Concrete,08/02/2025,Avalon Construction
-,,,,,,Claire,10/06/2025,003,Fixed measurement error in bedroom length,001,True,,Centra Windows,Window,08/02/2025,The Builder's Club
-,,,,,,Bob,10/06/2025,004,Placed couch and measurements in top left corner of living room,002,False,,Cloverdale Paint,Paint,09/01/2025,The Paint Party
-,,,,,,Edward,10/07/2025,005,Added doorway connecting bedroom to kitchen.,002,False,,,,,
-,,,,,,Fred,10/10/2025,006,Added the length of the doorway to the exit,003,False,,,,,
-,,,,,,Claire,10/11/2025,007,Added closet to bedroom,003,False,,,,,
-,,,,,,Hannah,10/11/2025,008,Calculated and written all area measurements for each section,003,True,,,,,
+File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isCurrent,Supplier Name,Material,Date Ordered,Contractor Name
+Blueprint Creator,"(51N,-114W)",120000,12345678,09/29/2025,03/25/2026,Alice,10/04/2025,001,Added new doorway connecting bedroom and bathroom.,,False,Black Forest Wood,Wood,08/07/2025,Avalon Construction
+,,,,,,Bob,10/05/2025,002,Updated measurements for larger kitchen size,001,False,Apex Concrete,Concrete,08/02/2025,Avalon Construction
+,,,,,,Claire,10/06/2025,003,Fixed measurement error in bedroom length,001,False,Centra Windows,Window,08/02/2025,The Builder's Club
+,,,,,,Bob,10/06/2025,004,Placed couch and measurements in top left corner of living room,002,False,Cloverdale Paint,Paint,09/01/2025,The Paint Party
+,,,,,,Edward,10/07/2025,005,Added doorway connecting bedroom to kitchen.,002,False,,,,
+,,,,,,Fred,10/10/2025,006,Added the length of the doorway to the exit,003,False,,,,
+,,,,,,Claire,10/11/2025,007,Added closet to bedroom,003,False,,,,
+,,,,,,Hannah,10/11/2025,008,Calculated and written all area measurements for each section,003,True,,,,
+
