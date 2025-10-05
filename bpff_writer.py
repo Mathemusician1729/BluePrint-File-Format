@@ -88,7 +88,8 @@ def addVersion(bpffFile, author, date, commitmsg, current):
     if current == True: # we set the pointer for current version to the new node, so we need to set the old current node to False
         currentNode.isCurrent = False 
 
-    with open(bpffFile, "w") as f: # write new tree back to file
+    # write updated tree and history back to file     
+    with open(bpffFile, "w") as f: 
         # write header data back to file
         for line in bpff_contents[:bpff_contents.index('COMMIT_TREE:')+1]:
             f.write(line + "\n")
@@ -119,10 +120,46 @@ def addVersion(bpffFile, author, date, commitmsg, current):
     bpff_appendFooter.close() # close file final
 
 # Revert: reverts to a previous version in the main branch
-def revert(bpffFile, revertVersionID): # TODO work on revert function which will revert to a previous main branch
+def revert(bpffFile, revertVersionID): 
     bpff_contents = getbpffcontents(bpffFile)
     tree = newick_to_tree(bpff_contents[bpff_contents.index('COMMIT_TREE:')+1])
+    
+    revertNode = find_name(tree, revertVersionID) # find node to revert to by its ID (https://bigtree.readthedocs.io/stable/bigtree/tree/search/#bigtree.tree.search.find_name)
+    currentNode = find_attr(tree, "isCurrent", "True") # find current node
 
-# test
-write_to_bpff("House_3rdFloor_Plumbing.csv", "tester2.bpff")
-addVersion("poop2.bpff", "Matthew", "10/31/2025", "Added new door to floor plan", True)
+    revertNode.set_attrs({"isCurrent": True}) # set revert node to current
+    currentNode.isCurrent = False # set old current node to False
+
+    # write updated tree and history back to file
+    with open(bpffFile, "w") as f: 
+        # write header data back to file
+        for line in bpff_contents[:bpff_contents.index('COMMIT_TREE:')+1]:
+            f.write(line + "\n")
+
+        # update newick string in file contents
+        treeBacktoNewick = tree_to_newick(tree, attr_list=['VersionAuthor','VersionDate','CommitID','LastCommitID','CommitMsg','isCurrent'])
+        bpff_contents[bpff_contents.index('COMMIT_TREE:')+1] = treeBacktoNewick
+        f.write(treeBacktoNewick + "\n")
+
+        # update main branch history + current ID in file contents
+        # extract current history list from file contents
+        versionData = bpff_contents[bpff_contents.index('COMMIT_TREE:')+2].split(",") 
+        history_list = versionData[0].strip("{main_branch_historyByID=()").split(">")
+
+        # find index of revert node in history list and slice history list to that index (inclusive)
+        revertIndex = history_list.index(revertVersionID)
+        history_list = history_list[:revertIndex+1] 
+
+        history_list = ">".join(history_list) # convert back to string with '>' separating IDs (from previous format)
+
+        f.write("{main_branch_historyByID=(" + history_list + ")," + "current_ID=" + revertVersionID + "}\n") # write updated verison history and current ID back to file
+    f.close() # close file after writing
+
+    # rewrite checksum footer
+    with open(bpffFile, "rb") as f:
+        digest = hashlib.file_digest(f, 'sha256').hexdigest() # create sha256 checksum of file
+    
+    # append checksum to end of file
+    with open(bpffFile, "a") as bpff_appendFooter:
+        bpff_appendFooter.write("\nchecksum-sha256:\n" + digest)
+    bpff_appendFooter.close() # close file final

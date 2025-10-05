@@ -10,7 +10,7 @@ bpffFile1 = "blueprint_sample1.bpff"
 bpffFile2 = "blueprint_sample2.bpff"
 
 try:
-    bpff_writer.write_to_bpff(bpff_Sample1, bpffFile1)
+    bpff_writer.write_to_bpff(bpff_Sample1,bpffFile1)
     bpff_writer.write_to_bpff(bpff_Sample2,bpffFile2)
 
     # test reader
