@@ -1,6 +1,7 @@
-import pandas as pd
-from bigtree import *
-from cryptography.fernet import Fernet
+import pandas as pd #
+from bigtree import * #
+from cryptography.fernet import Fernet #
+import hashlib # 
 
 def write_to_bpff(input_filename, output_filename): 
     bpff_toWrite = open(output_filename, "w")
@@ -60,19 +61,24 @@ def write_to_bpff(input_filename, output_filename):
     suppliers_key = Fernet.generate_key()
 
     # write to .bpff file
-    bpff_toWrite.write("\nSUPPLIERS:")
+    #bpff_toWrite.write("\nSUPPLIERS:")
 
     # TODO encrypt into file using fernet
         
     # TODO create some demo pdfs for the tester
     # TODO determine how to make pointers to pdfs
 
-    # TODO implement checksum for footer
-
-    # Footer stuffs:
-
-    # close file after writing
+    # close file after writing main data 
     bpff_toWrite.close() 
+
+    # Write footer with checksum
+    with open(output_filename, "rb") as f:
+        digest = hashlib.file_digest(f, 'sha256').hexdigest() # create sha256 checksum of file
+    
+    with open(output_filename, "a") as bpff_toWrite:
+        bpff_toWrite.write("\n\nchecksum-sha256: " + digest)
+
+    # bpff_toWrite.write("\nchecksum-sha256: "+digest) # write checksum to footer
 
 def add_version(bpffFile, author, date, last_commitID, commitmsg): # TODO work on add version which will add a new update to the git log
     version_node = Node()

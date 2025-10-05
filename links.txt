@@ -11,3 +11,4 @@ Fernet Help: https://cryptography.io/en/latest/fernet/
 Doubly Linked List: https://www.geeksforgeeks.org/dsa/doubly-linked-list-in-python/ 
 Search by Name: https://bigtree.readthedocs.io/stable/bigtree/tree/search/#bigtree.tree.search.find_name
 Get pathname: https://bigtree.readthedocs.io/stable/bigtree/node/node/#bigtree.node.node.Node.path_name
+SHA-256 Checksum: https://docs.python.org/3/library/hashlib.html
