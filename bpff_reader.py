@@ -32,7 +32,7 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     currentVersion = currentVersion.strip("current_ID=}")
 
     #
-    history_fromFile = history_fromFile.strip("{main_branch_history=()")
+    history_fromFile = history_fromFile.strip("{main_branch_historyByID=()")
     history_list = history_fromFile.split(">")
 
     # print results

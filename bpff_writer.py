@@ -21,23 +21,23 @@ def write_to_bpff(input_filename, output_filename):
         bpff_toWrite.write(header_line)
 
     # tree stuff
-    main_branch_IDs = [] # create array to store version IDs of "finalized" nodes
     tree_data = data[['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isCurrent']] # parse tree attributes from dataframe
-    tree_data["Last CommitID"] = tree_data["Last CommitID"].astype(str).replace('nan', None) # this confounds me
+    tree_data["Last CommitID"] = tree_data["Last CommitID"].astype(str).replace('nan', None) # since bigtree requires None to distinguish root node parent, replace 'nan' with None
 
     version_tree = dataframe_to_tree_by_relation(tree_data, child_col='CommitID', parent_col='Last CommitID')
 
     version_tree_asNewick = tree_to_newick(version_tree, attr_list=['Version Author','Version Date','CommitID','Last CommitID','CommitMsg','isCurrent'])
     bpff_toWrite.write("\nCOMMIT_TREE:\n"+version_tree_asNewick)
 
-    # traverse tree backwards to get main branch IDs for finalized ones only
-    
-
     # create pointer to current version
-    currentVersionID = main_branch_IDs[-1]
-    
+    currentVersionID = tree_data[tree_data["isCurrent"] == True]["CommitID"].values[0]
+
+    # find main branch IDs (EXPLAIN THIS BETTER)
+    main_branch_IDs = find_name(version_tree, currentVersionID).path_name.split("/") #
+    main_branch_IDs.remove('') # remove empty string at beginning from split
+
     # write 
-    bpff_toWrite.write("\n{main_branch_history=(")
+    bpff_toWrite.write("\n{main_branch_historyByID=(")
     for id_idx in range(len(main_branch_IDs)-1):
         bpff_toWrite.write(main_branch_IDs[id_idx]+">")
     bpff_toWrite.write(currentVersionID+")")

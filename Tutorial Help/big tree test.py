@@ -27,3 +27,5 @@ version_tree.show(attr_list=['age'])
 
 d = [node.node_name for node in bt.preorder_iter(version_tree)]
 print(d)
+idk = relation_data[relation_data["child"] == "d"]["parent"].values[0]
+print(idk)

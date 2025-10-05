@@ -9,3 +9,5 @@ Read Specific Lines: https://www.geeksforgeeks.org/python/how-to-read-specific-l
 List Indexing: https://www.w3schools.com/python/ref_list_index.asp 
 Fernet Help: https://cryptography.io/en/latest/fernet/
 Doubly Linked List: https://www.geeksforgeeks.org/dsa/doubly-linked-list-in-python/ 
+Search by Name: https://bigtree.readthedocs.io/stable/bigtree/tree/search/#bigtree.tree.search.find_name
+Get pathname: https://bigtree.readthedocs.io/stable/bigtree/node/node/#bigtree.node.node.Node.path_name
