@@ -1,10 +1,6 @@
 from bigtree import *
 
 def read_bpff(bpff_file): # function for reading .bpff file and printing results
-    """
-    input: .bpff filename
-    output: print .bpff contents to console 
-    """
     bpff_read = open(bpff_file, "r") # open specified .bpff file
     bpff_contents = bpff_read.readlines() # get all lines and store in array
     for i in range(len(bpff_contents)): # since each line ends with '\n' for newline, remove \n for the array contents
@@ -27,11 +23,8 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
 
     # parse metadata 
     tree_metadata = bpff_contents[tree_index+2].split(",") # get line which contains 
-    history_fromFile, currentVersion = tree_metadata[0], tree_metadata[1]
+    history_fromFile, currentVersion = tree_metadata[0].strip("{main_branch_historyByID=()"), tree_metadata[1].strip("current_ID=}")
 
-    # clean up strings
-    currentVersion = currentVersion.strip("current_ID=}")
-    history_fromFile = history_fromFile.strip("{main_branch_historyByID=()")
     history_list = history_fromFile.split(">")
 
     # print results
@@ -52,4 +45,4 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     return # TODO return something?
 
 read_bpff("tester.bpff")
-read_bpff("tester2.bpff")
+read_bpff("poop.bpff")
