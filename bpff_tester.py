@@ -14,7 +14,10 @@ try:
     bpff_writer.write_to_bpff(bpff_Sample2,bpffFile2)
 
     # test reader
+    print("Read .bpff File 1:")
     bpff_reader.read_bpff(bpffFile1)
+
+    print("\n--------------------\nRead .bpff File 2:")
     bpff_reader.read_bpff(bpffFile2)
 
     # test add

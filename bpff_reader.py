@@ -11,6 +11,7 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
          bpff_contents[i] = bpff_contents[i].replace('\n','')
 
     # parse + print header information
+    print("HEADER DATA:")
     header_length = bpff_contents.index('') # find index for end of header
     for i in range(0,header_length): # print each line of header
         print(bpff_contents[i])
@@ -21,28 +22,30 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
     newick_string = bpff_contents[tree_index+1]
     versionTree_Reader = newick_to_tree(newick_string)
 
-    print("Blueprint Version History:")
+    print("BLUEPRINT VERSION HISTORY:")
     versionTree_Reader.show(all_attrs=True)
 
     # parse metadata 
     tree_metadata = bpff_contents[tree_index+2].split(",") # get line which contains 
     history_fromFile, currentVersion = tree_metadata[0], tree_metadata[1]
 
-    #
+    # clean up strings
     currentVersion = currentVersion.strip("current_ID=}")
-
-    #
     history_fromFile = history_fromFile.strip("{main_branch_historyByID=()")
     history_list = history_fromFile.split(">")
 
     # print results
-    print("\nCurrent Version: Branch",currentVersion)
-
+    print("Current Version: Branch",currentVersion)
     history = ''
     for ids_i in range(len(history_list)-1):
         history += history_list[ids_i] + " --> "
     history += history_list[-1]
     print("Main Branch History (by Branch ID):",history)
+
+    # print footer
+    print("\nFOOTER DATA:")
+    footer_index = bpff_contents.index('checksum-sha256:') 
+    print("File Checksum Value (SHA-256): "+bpff_contents[footer_index+1])
     
     # close file at end
     bpff_read.close()
