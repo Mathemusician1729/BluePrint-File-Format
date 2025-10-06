@@ -37,7 +37,7 @@ def read_bpff(bpff_file): # function for reading .bpff file and printing results
 
     # print footer
     print("\nFOOTER DATA:")
-    footer_index = bpff_contents.index('checksum-sha256:') 
+    footer_index = bpff_contents.index('checksum-val:') 
     print("File Checksum Value (SHA-256): "+bpff_contents[footer_index+1])
     
     # close file at end
