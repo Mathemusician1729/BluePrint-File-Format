@@ -1,3 +1,4 @@
+# import reader and writer modules to test (https://www.geeksforgeeks.org/python/how-to-import-other-python-files/)
 import bpff_reader 
 import bpff_writer
 
