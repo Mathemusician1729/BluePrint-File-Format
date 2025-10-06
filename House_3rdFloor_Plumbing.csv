@@ -1,4 +1,4 @@
-File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,Version Author,Version Date,CommitID,CommitMsg,Last CommitID,isCurrent,Supplier Name,Material,Date Ordered,Contractor Name
+File Author,Build Location,Budget Limit,Project ID,Date of Approval,Est. Date of Completion,VersionAuthor,VersionDate,CommitID,CommitMsg,LastCommitID,isCurrent,Supplier Name,Material,Date Ordered,Contractor Name
 John Blueprint,"(28N,60W)",1300000,23302397,08/25/2025,02/24/2026,Albert,09/28/2025,001,Added hot water line to bathroom sink,,False,Pipe Providers,PVC Pipes,08/25/2025,Plumbing Experts
 ,,,,,,Bob,10/01/2025,002,Rerouted pipe A to pipe C from pipe B,001,False,Pipe Providers,Elbow Pipes,08/25/2025,Plumbing Experts
 ,,,,,,Bob,10/01/2025,003,Rerouted pipe A to pipe D from pipe B,001,False,Pipe Providers,Gate Valves,08/29/2025,Plumbing Experts

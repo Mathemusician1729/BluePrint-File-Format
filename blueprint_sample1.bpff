@@ -6,7 +6,8 @@ Date of Approval: 09/29/2025
 Est. Date of Completion: 03/25/2026
 
 COMMIT_TREE:
-((004[&&NHX:Version Author=Bob:Version Date=10/06/2025:CommitMsg=Placed couch and measurements in top left corner of living room],005[&&NHX:Version Author=Edward:Version Date=10/07/2025:CommitMsg=Added doorway connecting bedroom to kitchen.])002[&&NHX:Version Author=Bob:Version Date=10/05/2025:CommitMsg=Updated measurements for larger kitchen size],(006[&&NHX:Version Author=Fred:Version Date=10/10/2025:CommitMsg=Added the length of the doorway to the exit],007[&&NHX:Version Author=Claire:Version Date=10/11/2025:CommitMsg=Added closet to bedroom],008[&&NHX:Version Author=Hannah:Version Date=10/11/2025:CommitMsg=Calculated and written all area measurements for each section:isCurrent=True])003[&&NHX:Version Author=Claire:Version Date=10/06/2025:CommitMsg=Fixed measurement error in bedroom length])001[&&NHX:Version Author=Alice:Version Date=10/04/2025:CommitMsg=Added new doorway connecting bedroom and bathroom.]
+((004[&&NHX:VersionAuthor=Bob:VersionDate=10/06/2025:CommitMsg=Placed couch and measurements in top left corner of living room],005[&&NHX:VersionAuthor=Edward:VersionDate=10/07/2025:CommitMsg=Added doorway connecting bedroom to kitchen.])002[&&NHX:VersionAuthor=Bob:VersionDate=10/05/2025:CommitMsg=Updated measurements for larger kitchen size],(006[&&NHX:VersionAuthor=Fred:VersionDate=10/10/2025:CommitMsg=Added the length of the doorway to the exit],007[&&NHX:VersionAuthor=Claire:VersionDate=10/11/2025:CommitMsg=Added closet to bedroom],008[&&NHX:VersionAuthor=Hannah:VersionDate=10/11/2025:CommitMsg=Calculated and written all area measurements for each section:isCurrent=True])003[&&NHX:VersionAuthor=Claire:VersionDate=10/06/2025:CommitMsg=Fixed measurement error in bedroom length])001[&&NHX:VersionAuthor=Alice:VersionDate=10/04/2025:CommitMsg=Added new doorway connecting bedroom and bathroom.]
 {main_branch_historyByID=(001>003>008),current_ID=008}
 
-checksum-sha256: 4356a9c82247bb94d4f655b77e930524662a6614a61d083ce46e6c2ae3abe912
+checksum-val:
+fd911eb1067a9365b7e8ab2aa21c68d5e74e918856cb853a5f8864c9e7596c99
